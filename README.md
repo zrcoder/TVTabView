@@ -5,11 +5,11 @@ Usage:
 ---
 ```
 CGRect frame = CGRectMake(0, 100, self.view.frame.size.width, 260);
-    TVTabView *tabView = [[TVTabView alloc] initWithFrame:frame];
-    
-    //  Make items
-    
-    //  1.If we have same kind of pages:
+TVTabView *tabView = [[TVTabView alloc] initWithFrame:frame];
+```
+Make items<br>
+1.If we have same kind of pages:
+```
     NSMutableArray *array = [NSMutableArray array];
     for (int i = 1; i <= 5; i++) {
         TVItem *item = [TVItem new];
@@ -27,32 +27,30 @@ CGRect frame = CGRectMake(0, 100, self.view.frame.size.width, 260);
         [array addObject:item];
     }
     tabView.items = array;
+```
+2.Else if we have diffrent kind of pages:
+```
+TVItem *item1 = [TVItem new];
+item1.title = @"First";
+UILabel *label = [UILabel new];
+label.textAlignment = NSTextAlignmentCenter;
+label.text = @"First view";
+item1.view = label;
     
-    //  2.Else if we have diffrent kind of pages:
-    /*
-    TVItem *item1 = [TVItem new];
-    item1.title = @"First";
-    UILabel *label = [UILabel new];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.text = @"First view";
-    item1.view = label;
-    
-    TVItem *item2 = [TVItem new];
-    item2.title = @"Last";
-    UIImageView *imageView = [UIImageView new];
-    imageView.backgroundColor = [UIColor orangeColor];
-    item2.view = imageView;
-    item2.tabSelectedAction = ^{
-        NSLog(@"Second Tab Selected.");
-    };
-    item2.bodyTappedAction = ^{
-        NSLog(@"Second View Tapped.");
-    };
-    tabView.items = @[item1, item2];
-     */
-    
-    [self.view  addSubview:tabView];
-    self.view.backgroundColor = [UIColor whiteColor];
-
-
+TVItem *item2 = [TVItem new];
+item2.title = @"Last";
+UIImageView *imageView = [UIImageView new];
+imageView.backgroundColor = [UIColor orangeColor];
+item2.view = imageView;
+item2.tabSelectedAction = ^{
+     NSLog(@"Second Tab Selected.");
+};
+item2.bodyTappedAction = ^{
+    NSLog(@"Second View Tapped.");
+};
+tabView.items = @[item1, item2];
+```
+```
+[self.view  addSubview:tabView];
+self.view.backgroundColor = [UIColor whiteColor];
 ```
