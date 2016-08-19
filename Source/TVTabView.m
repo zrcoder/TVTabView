@@ -91,7 +91,6 @@
         [self.tabView addSubview:button];
         [self.buttons addObject:button];
     }];
-    
     [self.bodyView reloadData];
     [self p_tappedTabWithIndex:0];
 }
@@ -202,6 +201,7 @@
         _bodyView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
         _bodyView.backgroundColor = [UIColor clearColor];
         [_bodyView registerClass:[TVCell class] forCellWithReuseIdentifier:@"TVCell"];
+        _bodyView.delaysContentTouches = NO;
         _bodyView.dataSource = self;
         _bodyView.delegate = self;
         _bodyView.pagingEnabled = YES;

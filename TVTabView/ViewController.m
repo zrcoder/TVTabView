@@ -8,6 +8,9 @@
 
 #import "ViewController.h"
 #import "TVTabView.h"
+#import "ViewController1.h"
+#import "ViewController2.h"
+#import "ViewController3.h"
 
 @interface ViewController ()
 
@@ -15,66 +18,51 @@
 
 @implementation ViewController
 
-- (void)loadView {
-    [super loadView];
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
-    CGRect frame = CGRectMake(0, 100, self.view.frame.size.width, 260);
-    TVTabView *tabView = [[TVTabView alloc] initWithFrame:frame];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-    //  Make items
+    ViewController1 *vc1 = [storyboard instantiateViewControllerWithIdentifier:@"ViewController1"];
+    ViewController2 *vc2 = [storyboard instantiateViewControllerWithIdentifier:@"ViewController2"];
+    ViewController3 *vc3 = [storyboard instantiateViewControllerWithIdentifier:@"ViewController3"];
     
-    //  1.If we have same kind of pages:
-    NSMutableArray *array = [NSMutableArray array];
-    for (int i = 1; i <= 5; i++) {
-        TVItem *item = [TVItem new];
-        item.title = [NSString stringWithFormat:@"Tab %d", i];
-        UILabel *label = [UILabel new];
-        label.textAlignment = NSTextAlignmentCenter;
-        item.view = label;
-        label.text = [NSString stringWithFormat:@"Page %d", i];
-        item.tabSelectedAction = ^{
-            NSLog(@"Tab %d is selected", i);
-        };
-        item.bodyTappedAction = ^{
-            NSLog(@"Page %d is tapped.", i);
-        };
-        [array addObject:item];
-    }
-    tabView.items = array;
+    CGRect screenBounds = [UIScreen mainScreen].bounds;
+    TVTabView *tabView = [[TVTabView alloc] initWithFrame:screenBounds];
+    tabView.bodyBottomMargin = 0;
     
-    //  2.Else if we have diffrent kind of pages:
-    /*
     TVItem *item1 = [TVItem new];
-    item1.title = @"First";
-    UILabel *label = [UILabel new];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.text = @"First view";
-    item1.view = label;
+    item1.title = @"controller 1";
+    item1.view = vc1.view;
     
     TVItem *item2 = [TVItem new];
-    item2.title = @"Last";
-    UIImageView *imageView = [UIImageView new];
-    imageView.backgroundColor = [UIColor orangeColor];
-    item2.view = imageView;
+    item2.title = @"controller 2";
+    item2.view = vc2.view;
     item2.tabSelectedAction = ^{
-        NSLog(@"Second Tab Selected.");
+        static BOOL loaded = NO;
+        if (!loaded) {
+            loaded = YES;
+            [vc2 loadData];
+        }
     };
-    item2.bodyTappedAction = ^{
-        NSLog(@"Second View Tapped.");
-    };
-    tabView.items = @[item1, item2];
-     */
+    
+    TVItem *item3 = [TVItem new];
+    item3.title = @"controller 3";
+    item3.view = vc3.view;
+    
+    tabView.items = @[item1, item2, item3];
+    
     
     [self.view  addSubview:tabView];
     self.view.backgroundColor = [UIColor whiteColor];
-    
-}
-- (void)viewDidLoad {
-    [super viewDidLoad];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+- (BOOL)prefersStatusBarHidden{
+    return YES;
 }
 
 @end
