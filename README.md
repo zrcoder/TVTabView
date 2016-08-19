@@ -1,7 +1,7 @@
 # TVTabView
 Handy Tab view.<br>
-[TV1](https://github.com/DingHub/ScreenShots/blob/master/TVTabView/1.png)
-[TV0](https://github.com/DingHub/ScreenShots/blob/master/TVTabView/0.png)
+![TV1](https://github.com/DingHub/ScreenShots/blob/master/TVTabView/1.png)
+![TV0](https://github.com/DingHub/ScreenShots/blob/master/TVTabView/0.png)
 Usage:
 ---
 1. As a containner of views:
