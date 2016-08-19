@@ -5,8 +5,9 @@ Usage:
 ---
 1. As a containner of views:
 ```
-CGRect frame = CGRectMake(0, 100, self.view.frame.size.width, 260);
-    TVTabView *tabView = [[TVTabView alloc] initWithFrame:frame];
+CGFloat width = self.view.frame.size.width;
+    CGRect frame = CGRectMake(width*0.25, 100, width*0.5, width*0.8);
+    self.tabView = [[TVTabView alloc] initWithFrame:frame];
     
     TVItem *item1 = [TVItem new];
     item1.title = @"First";
@@ -26,21 +27,23 @@ CGRect frame = CGRectMake(0, 100, self.view.frame.size.width, 260);
     item2.bodyTappedAction = ^{
         NSLog(@"Second View Tapped.");
     };
-    tabView.items = @[item1, item2];
+    self.tabView.items = @[item1, item2];
     
-    [self.view  addSubview:tabView];
+    [self.view  addSubview:self.tabView];
     self.view.backgroundColor = [UIColor whiteColor];
 ```
 2. As a containner of viewControllers:
 ```
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+   UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     ViewController1 *vc1 = [storyboard instantiateViewControllerWithIdentifier:@"ViewController1"];
     ViewController2 *vc2 = [storyboard instantiateViewControllerWithIdentifier:@"ViewController2"];
     ViewController3 *vc3 = [storyboard instantiateViewControllerWithIdentifier:@"ViewController3"];
     
+    CGRect screenBounds = [UIScreen mainScreen].bounds;
+    TVTabView *tabView = [[TVTabView alloc] initWithFrame:screenBounds];
+    tabView.bodyBottomMargin = 0;
     
-    TVTabView *tabView = [[TVTabView alloc] initWithFrame:self.view.frame];
     TVItem *item1 = [TVItem new];
     item1.title = @"controller 1";
     item1.view = vc1.view;
@@ -61,7 +64,6 @@ CGRect frame = CGRectMake(0, 100, self.view.frame.size.width, 260);
     item3.view = vc3.view;
     
     tabView.items = @[item1, item2, item3];
-    
     
     [self.view  addSubview:tabView];
     self.view.backgroundColor = [UIColor whiteColor];
