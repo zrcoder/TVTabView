@@ -102,7 +102,6 @@
     if (_currentSelectedIndex == index) {
         return;
     }
-    TVItem *item = self.items[index];
     UIButton *preBtn = self.buttons[_currentSelectedIndex];
     preBtn.selected = NO;
     
@@ -115,6 +114,8 @@
     }];
     [self p_scrollBody];
     
+    
+    TVItem *item = self.items[index];
     if (item.tabSelectedAction) {
         item.tabSelectedAction();
     }
@@ -188,7 +189,7 @@
 
 - (UICollectionView *)bodyView {
     if (_bodyView == nil) {
-        CGRect frame = CGRectMake(0,
+        CGRect bodyFrame = CGRectMake(0,
                                   self.tabHeight + self.bodyTopMargin,
                                   self.p_width,
                                   self.p_height - self.tabHeight - self.bodyTopMargin - self.bodyBottomMargin);
@@ -197,8 +198,9 @@
         layout.minimumLineSpacing
         = layout.minimumInteritemSpacing
         = 0.000001f;
-        layout.itemSize = frame.size;
-        _bodyView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
+        layout.itemSize = bodyFrame.size;
+        
+        _bodyView = [[UICollectionView alloc] initWithFrame:bodyFrame collectionViewLayout:layout];
         _bodyView.backgroundColor = [UIColor clearColor];
         [_bodyView registerClass:[TVCell class] forCellWithReuseIdentifier:@"TVCell"];
         _bodyView.delaysContentTouches = NO;
