@@ -69,4 +69,10 @@ CGFloat width = self.view.frame.size.width;
     [self.view  addSubview:tabView];
     self.view.backgroundColor = [UIColor whiteColor];
 ```
+Pod surppoted:
+```
+target 'YourTarget' do
+pod 'TVTabView'
+end
+```
 You can find a Swift version here:[TabView](https://github.com/DingHub/TabView)
