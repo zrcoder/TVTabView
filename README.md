@@ -70,3 +70,4 @@ CGFloat width = self.view.frame.size.width;
     [self.view  addSubview:tabView];
     self.view.backgroundColor = [UIColor whiteColor];
 ```
+You can find a Swift version here:[TabView](https://github.com/DingHub/TabView)
