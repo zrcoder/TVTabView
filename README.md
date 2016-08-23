@@ -6,7 +6,7 @@ Usage:
 ---
 1. As a containner of views:
 ```
-CGFloat width = self.view.frame.size.width;
+    CGFloat width = self.view.frame.size.width;
     CGRect frame = CGRectMake(width*0.25, 100, width*0.5, width*0.8);
     self.tabView = [[TVTabView alloc] initWithFrame:frame];
     
@@ -35,7 +35,7 @@ CGFloat width = self.view.frame.size.width;
 ```
 2. As a containner of viewControllers:
 ```
-   UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     ViewController1 *vc1 = [storyboard instantiateViewControllerWithIdentifier:@"ViewController1"];
     ViewController2 *vc2 = [storyboard instantiateViewControllerWithIdentifier:@"ViewController2"];
