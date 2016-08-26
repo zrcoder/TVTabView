@@ -38,7 +38,7 @@ typedef void(^TVAction)();
 @property (nonatomic, assign) CGFloat bodyBottomMargin;
 
 /**
- *  Default is clear color
+ *  Default is nil
  */
 @property (nonatomic, copy) UIColor *tabBackGroundColor;
 
@@ -66,7 +66,7 @@ typedef void(^TVAction)();
 @property (nonatomic, copy) UIColor *selectedTabLineColor;
 
 /**
- *  After setted, we will begin to build subviews(buttons, or views in body)
+ *  After setted, we will begin to build subviews(buttons, and views in body)
  */
 @property (nonatomic, strong) NSArray<TVItem *> * items;
 

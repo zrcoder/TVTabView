@@ -63,7 +63,6 @@
     self.bodyTopMargin
     = self.bodyBottomMargin
     = 20;
-    self.tabBackGroundColor = [UIColor clearColor];
     self.tabFontSize = 14;
     self.titleColor = [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1];
     self.selectedTitleColor
