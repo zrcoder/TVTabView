@@ -66,7 +66,6 @@
     self.tabBackGroundColor = [UIColor clearColor];
     self.tabFontSize = 14;
     self.titleColor = [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1];
-    self.tabLineColor = [UIColor colorWithRed:225/255.0 green:225/255.0 blue:225/255.0 alpha:1];
     self.selectedTitleColor
     = self.selectedTabLineColor
     = [UIColor colorWithRed:33/255.0 green:149/255.0 blue:128/255.0 alpha:1];

@@ -57,7 +57,7 @@ typedef void(^TVAction)();
 @property (nonatomic, copy) UIColor *selectedTitleColor;
 
 /**
- *  Default is gray (red:225 green:225 blue:225 --#e1e1e1)
+ *  Default is nil
  */
 @property (nonatomic, copy) UIColor *tabLineColor;
 /**
