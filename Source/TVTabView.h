@@ -56,6 +56,14 @@ typedef void(^TVAction)();
  */
 @property (nonatomic, copy) UIColor *selectedTitleColor;
 
+/**
+ *  Default is gray (red:225 green:225 blue:225 --#e1e1e1)
+ */
+@property (nonatomic, copy) UIColor *tabLineColor;
+/**
+ *  Default is the same as selectedTitleColor default - green (red:33 green:149 blue:128 --#219580)
+ */
+@property (nonatomic, copy) UIColor *selectedTabLineColor;
 
 /**
  *  After setted, we will begin to build subviews(buttons, or views in body)

@@ -29,6 +29,7 @@
 
 @property (nonatomic, strong) UIView *tabView;
 @property (nonatomic, strong) UIView *tabLine;
+@property (nonatomic, strong) UIView *tabSelectedLine;
 @property (nonatomic, strong) UICollectionView *bodyView;
 
 @property (nonatomic, strong) NSMutableArray* buttons;
@@ -65,14 +66,18 @@
     self.tabBackGroundColor = [UIColor clearColor];
     self.tabFontSize = 14;
     self.titleColor = [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1];
-    self.selectedTitleColor = [UIColor colorWithRed:33/255.0 green:149/255.0 blue:128/255.0 alpha:1];
+    self.tabLineColor = [UIColor colorWithRed:225/255.0 green:225/255.0 blue:225/255.0 alpha:1];
+    self.selectedTitleColor
+    = self.selectedTabLineColor
+    = [UIColor colorWithRed:33/255.0 green:149/255.0 blue:128/255.0 alpha:1];
     self.currentSelectedIndex = 0;
 }
 
 - (void)p_buildSubViews {
     
     self.tabView.backgroundColor = self.tabBackGroundColor;
-    self.tabLine.backgroundColor = self.selectedTitleColor;
+    self.tabLine.backgroundColor = self.tabLineColor;
+    self.tabSelectedLine.backgroundColor = self.selectedTabLineColor;
     
     NSInteger count = self.items.count;
     CGFloat buttonWidth = self.p_width / count;
@@ -110,7 +115,7 @@
     _currentSelectedIndex = index;
     
     [UIView animateWithDuration:0.3 animations:^{
-        self.tabLine.center = CGPointMake(currentBtn.center.x, self.tabLine.center.y);
+        self.tabSelectedLine.center = CGPointMake(currentBtn.center.x, self.tabSelectedLine.center.y);
     }];
     [self p_scrollBody];
     
@@ -180,11 +185,21 @@
 
 - (UIView *)tabLine {
     if (_tabLine == nil) {
-        CGRect frame = CGRectMake(0, self.tabHeight - 1, self.p_width / self.items.count, 1);
+        CGRect frame = CGRectMake(0, self.tabHeight - 1, self.p_width, 1);
         _tabLine = [[UIView alloc] initWithFrame:frame];
         [self addSubview:_tabLine];
+        [_tabLine addSubview:self.tabSelectedLine];
     }
     return _tabLine;
+}
+
+- (UIView *)tabSelectedLine {
+    if (_tabSelectedLine == nil) {
+        CGRect frame = CGRectMake(0, 0, self.p_width / self.items.count, 1);
+        _tabSelectedLine = [[UIView alloc] initWithFrame:frame];
+        [self addSubview:_tabSelectedLine];
+    }
+    return _tabSelectedLine;
 }
 
 - (UICollectionView *)bodyView {
