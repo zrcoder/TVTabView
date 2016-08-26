@@ -9,6 +9,7 @@ Usage:
     CGFloat width = self.view.frame.size.width;
     CGRect frame = CGRectMake(width*0.25, 100, width*0.5, width*0.8);
     self.tabView = [[TVTabView alloc] initWithFrame:frame];
+    self.tabView.tabLineColor = [UIColor colorWithRed:225/255.0 green:225/255.0 blue:225/255.0 alpha:1];
     
     TVItem *item1 = [TVItem new];
     item1.title = @"First";
