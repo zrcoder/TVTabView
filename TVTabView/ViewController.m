@@ -30,6 +30,7 @@
     
     CGRect screenBounds = [UIScreen mainScreen].bounds;
     TVTabView *tabView = [[TVTabView alloc] initWithFrame:screenBounds];
+    tabView.tabHorizontalMargin = 5;
     tabView.bodyBottomMargin = 0;
     
     TVItem *item1 = [TVItem new];

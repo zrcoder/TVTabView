@@ -33,6 +33,8 @@
     tabView.tabBackGroundImageName = @"tabButtonBackground";
     tabView.tabLineColor = [UIColor colorWithWhite:0.9 alpha:1];
     tabView.selectedTabLineColor = nil;
+    tabView.tabHorizontalMargin = 5;
+    tabView.tabLineTopMargin = 3;
     
     TVItem *starItem = [TVItem new];
     starItem.title = @"Star";
@@ -44,7 +46,7 @@
     starItem.view = label;
     
     TVItem *discoveryItem = [TVItem new];
-    discoveryItem.title = @"Discovery";
+    discoveryItem.title = @"Time";
     discoveryItem.normalImageName = @"discovery_normal";
     discoveryItem.selectedImageName = @"discovery_selected";
     UIImageView *imageView = [UIImageView new];

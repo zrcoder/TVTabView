@@ -78,11 +78,11 @@
     self.tabSelectedLine.backgroundColor = self.selectedTabLineColor;
     
     NSInteger count = self.items.count;
-    CGFloat buttonWidth = self.p_width / count;
+    CGFloat buttonWidth = (self.p_width - self.tabHorizontalMargin * (count + 1)) / count;
     
     [self.items enumerateObjectsUsingBlock:^(TVItem *item, NSUInteger i, BOOL *stop) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(buttonWidth * i, 0, buttonWidth, self.tabHeight);
+        button.frame = CGRectMake(self.tabHorizontalMargin + (buttonWidth + self.tabHorizontalMargin) * i, 0, buttonWidth, self.tabHeight - self.tabLineTopMargin);
         button.titleLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
         button.titleLabel.font = [UIFont systemFontOfSize:self.tabFontSize];
         [button setTitleColor:self.titleColor forState:UIControlStateNormal];
@@ -210,7 +210,8 @@
 
 - (UIView *)tabSelectedLine {
     if (_tabSelectedLine == nil) {
-        CGRect frame = CGRectMake(0, 0, self.p_width / self.items.count, 1);
+        NSInteger count = self.items.count;
+        CGRect frame = CGRectMake(self.tabHorizontalMargin, 0, (self.p_width - self.tabHorizontalMargin * (count + 1)) / count, 1);
         _tabSelectedLine = [[UIView alloc] initWithFrame:frame];
         [self addSubview:_tabSelectedLine];
     }

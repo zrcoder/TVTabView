@@ -28,6 +28,10 @@ typedef void(^TVAction)();
 
 @property (nonatomic, assign) CGFloat tabHeight;    //  Default is 44
 
+@property (nonatomic, assign) CGFloat tabHorizontalMargin; // Default is 0
+
+@property (nonatomic, assign) CGFloat tabLineTopMargin; // Default is 0
+
 @property (nonatomic, assign) CGFloat bodyTopMargin;    //  Default is 20
 
 @property (nonatomic, assign) CGFloat bodyBottomMargin;    //  Default is 20
