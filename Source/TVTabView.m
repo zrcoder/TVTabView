@@ -124,12 +124,12 @@
         return;
     }
     UIButton *preBtn = self.buttons[_currentSelectedIndex];
-    preBtn.selected = NO;
     UIButton *currentBtn = self.buttons[index];
-    currentBtn.selected = YES;
     _currentSelectedIndex = index;
     
     [UIView animateWithDuration:0.3 animations:^{
+        preBtn.selected = NO;
+        currentBtn.selected = YES;
         self.tabSelectedLine.center = CGPointMake(currentBtn.center.x, self.tabSelectedLine.center.y);
     }];
     [self p_scrollBody];
