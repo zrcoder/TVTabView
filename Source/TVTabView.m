@@ -91,8 +91,26 @@
         [button addTarget:self action:@selector(p_tabTapped:) forControlEvents:UIControlEventTouchUpInside];
         [button setTitle:item.title forState:UIControlStateNormal];
         [button setTitle:item.title forState:UIControlStateSelected];
+        if (item.normalImageName) {
+            [button setImage:[UIImage imageNamed:item.normalImageName] forState:UIControlStateNormal];
+            CGSize imageSize = button.imageView.frame.size;
+            CGSize titileSize = button.titleLabel.frame.size;
+            [button setTitleEdgeInsets:UIEdgeInsetsMake(imageSize.height ,-imageSize.width, 0.0, 0.0)];
+            [button setImageEdgeInsets:UIEdgeInsetsMake(-titileSize.height, 0.0, 0.0, -titileSize.width)];
+        }
+        if (item.selectedImageName) {
+            [button setImage:[UIImage imageNamed:item.selectedImageName] forState:UIControlStateSelected];
+        }
+        if (self.tabBackGroundImageName) {
+            [button setBackgroundImage:[UIImage imageNamed:self.tabBackGroundImageName] forState:UIControlStateSelected];
+            button.contentEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5);
+        }
+        [button setBackgroundImage:nil forState:UIControlStateNormal];
         [self.tabView addSubview:button];
         [self.buttons addObject:button];
+        if (i==0) {
+            button.selected = YES;
+        }
     }];
     [self.bodyView reloadData];
     [self p_tappedTabWithIndex:0];
@@ -107,7 +125,6 @@
     }
     UIButton *preBtn = self.buttons[_currentSelectedIndex];
     preBtn.selected = NO;
-    
     UIButton *currentBtn = self.buttons[index];
     currentBtn.selected = YES;
     _currentSelectedIndex = index;

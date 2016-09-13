@@ -71,29 +71,8 @@
                     <view key="view" contentMode="scaleToFill" id="Hah-R7-uwe">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L61-kP-ogR">
-                                <rect key="frame" x="276" y="285" width="51" height="31"/>
-                            </switch>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="gIr-KH-b82">
-                                <rect key="frame" x="241" y="247" width="118" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="114" id="uWS-y0-hDf"/>
-                                </constraints>
-                            </slider>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="L61-kP-ogR" firstAttribute="top" secondItem="gIr-KH-b82" secondAttribute="bottom" constant="8" id="247-Qx-xYd"/>
-                            <constraint firstItem="L61-kP-ogR" firstAttribute="centerX" secondItem="Hah-R7-uwe" secondAttribute="centerX" id="Q7a-3c-G8F"/>
-                            <constraint firstItem="gIr-KH-b82" firstAttribute="centerX" secondItem="L61-kP-ogR" secondAttribute="centerX" id="s6Z-et-3tY"/>
-                            <constraint firstItem="L61-kP-ogR" firstAttribute="centerY" secondItem="Hah-R7-uwe" secondAttribute="centerY" id="tOk-pt-0Rf"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="slider" destination="gIr-KH-b82" id="WNc-dU-Z2U"/>
-                        <outlet property="toogle" destination="L61-kP-ogR" id="YIN-od-pvR"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zb5-dP-Frg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -16,6 +16,8 @@ typedef void(^TVAction)();
 @property (nonatomic, strong) UIView *view;
 @property (nonatomic, copy) TVAction tabSelectedAction;
 @property (nonatomic, copy) TVAction bodyTappedAction;
+@property (nonatomic, copy) NSString *normalImageName;//If is nil, there will be no image on the tap button.
+@property (nonatomic, copy) NSString *selectedImageName;
 
 @end
 
@@ -29,6 +31,8 @@ typedef void(^TVAction)();
 @property (nonatomic, assign) CGFloat bodyBottomMargin;    //  Default is 20
 
 @property (nonatomic, copy) UIColor *tabBackGroundColor;    //  Default is nil
+
+@property (nonatomic, copy) NSString *tabBackGroundImageName; // Default is nil
 
 @property (nonatomic, assign) CGFloat tabFontSize;    //  Default is 14
 
