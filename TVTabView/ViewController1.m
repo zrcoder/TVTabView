@@ -11,8 +11,6 @@
 
 @interface ViewController1 ()
 
-@property (strong, nonatomic) TVTabView *tabView;
-
 @end
 
 @implementation ViewController1
@@ -20,37 +18,55 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    CGFloat width = self.view.frame.size.width;
-    CGRect frame = CGRectMake(width*0.25, 100, width*0.5, width*0.8);
-    self.tabView = [[TVTabView alloc] initWithFrame:frame];
-    self.tabView.tabLineColor = [UIColor colorWithRed:225/255.0 green:225/255.0 blue:225/255.0 alpha:1];
-    
-    TVItem *item1 = [TVItem new];
-    item1.title = @"First";
-    UILabel *label = [UILabel new];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.text = @"First view";
-    item1.view = label;
-    
-    TVItem *item2 = [TVItem new];
-    item2.title = @"Last";
-    UIImageView *imageView = [UIImageView new];
-    imageView.backgroundColor = [UIColor orangeColor];
-    item2.view = imageView;
-    item2.tabSelectedAction = ^{
-        NSLog(@"Second Tab Selected.");
-    };
-    item2.bodyTappedAction = ^{
-        NSLog(@"Second View Tapped.");
-    };
-    self.tabView.items = @[item1, item2];
-    
-    [self.view  addSubview:self.tabView];
+    [self.view addSubview:[self createTabView]];
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (TVTabView *)createTabView {
+    CGFloat width = self.view.frame.size.width;
+    CGRect frame = CGRectMake(0, 100, width, width);
+    TVTabView *tabView = [[TVTabView alloc] initWithFrame:frame];
+    tabView.tabHeight = 60;
+    tabView.tabBackGroundImageName = @"tabButtonBackground";
+    tabView.tabLineColor = [UIColor colorWithWhite:0.9 alpha:1];
+    tabView.selectedTabLineColor = nil;
+    
+    TVItem *starItem = [TVItem new];
+    starItem.title = @"Star";
+    starItem.selectedImageName = @"star_selected";
+    starItem.normalImageName = @"star_normal";
+    UILabel *label = [UILabel new];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.text = @"⭐️⭐️⭐️⭐️⭐️⭐️⭐️";
+    starItem.view = label;
+    
+    TVItem *discoveryItem = [TVItem new];
+    discoveryItem.title = @"Discovery";
+    discoveryItem.normalImageName = @"discovery_normal";
+    discoveryItem.selectedImageName = @"discovery_selected";
+    UIImageView *imageView = [UIImageView new];
+    imageView.backgroundColor = [UIColor orangeColor];
+    discoveryItem.view = imageView;
+    
+    TVItem *supplierItem = [TVItem new];
+    supplierItem.title = @"Supplier";
+    supplierItem.selectedImageName = @"supplier_selected";
+    supplierItem.normalImageName = @"supplier_normal";
+    supplierItem.view = [UIView new];
+    
+    TVItem *myItem = [TVItem new];
+    myItem.title = @"My";
+    myItem.selectedImageName = @"my_selected";
+    myItem.normalImageName = @"my_normal";
+    myItem.view = [UIView new];
+    
+    tabView.items = @[starItem, discoveryItem, supplierItem, myItem];
+    
+    return tabView;
 }
 
 @end
