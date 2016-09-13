@@ -19,7 +19,6 @@
     [super viewDidLoad];
     
     [self.view addSubview:[self createTabView]];
-    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {

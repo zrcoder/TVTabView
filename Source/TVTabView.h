@@ -16,6 +16,8 @@ typedef void(^TVAction)();
 @property (nonatomic, strong) UIView *view;
 @property (nonatomic, copy) TVAction tabSelectedAction;
 @property (nonatomic, copy) TVAction bodyTappedAction;
+
+// Another style of tab button
 @property (nonatomic, copy) NSString *normalImageName;//If is nil, there will be no image on the tap button.
 @property (nonatomic, copy) NSString *selectedImageName;
 

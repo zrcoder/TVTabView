@@ -47,7 +47,6 @@
     tabView.items = @[item1, item2];
     
     [self.view  addSubview:tabView];
-    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {
