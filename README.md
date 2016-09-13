@@ -11,6 +11,8 @@ Usage:
     CGRect frame = CGRectMake(0, 100, width, width);
     TVTabView *tabView = [[TVTabView alloc] initWithFrame:frame];
     tabView.tabHeight = 60;
+    tabView.tabHorizontalMargin = 5;
+    tabView.tabLineTopMargin = 3;
     tabView.tabBackGroundImageName = @"tabButtonBackground";
     tabView.tabLineColor = [UIColor colorWithWhite:0.9 alpha:1];
     tabView.selectedTabLineColor = nil;
