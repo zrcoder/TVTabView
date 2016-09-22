@@ -50,6 +50,8 @@ typedef void(^TVAction)();
 
 @property (nonatomic, copy) UIColor *selectedTabLineColor;    //  Default is the same as selectedTitleColor default - green (red:33 green:149 blue:128 --#219580)
 
+@property (nonatomic, assign) BOOL bodyDragEnable; // Default is YES
+
 /**
  *  After setted, we will begin to build subviews(buttons, or views in body)
  */

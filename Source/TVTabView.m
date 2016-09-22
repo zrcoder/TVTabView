@@ -58,6 +58,11 @@
     }
 }
 
+- (void)setBodyDragEnable:(BOOL)bodyDragEnable {
+    _bodyDragEnable = bodyDragEnable;
+    self.bodyView.scrollEnabled = bodyDragEnable;
+}
+
 - (void)p_init {
     self.tabHeight = 44;
     self.bodyTopMargin
