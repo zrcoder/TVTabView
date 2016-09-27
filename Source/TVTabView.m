@@ -105,15 +105,15 @@
         [button addTarget:self action:@selector(p_tabTapped:) forControlEvents:UIControlEventTouchUpInside];
         [button setTitle:item.title forState:UIControlStateNormal];
         [button setTitle:item.title forState:UIControlStateSelected];
-        if (item.normalImageName) {
-            [button setImage:[UIImage imageNamed:item.normalImageName] forState:UIControlStateNormal];
+        if (item.normalImage) {
+            [button setImage:item.normalImage forState:UIControlStateNormal];
             CGSize imageSize = button.imageView.frame.size;
             CGSize titileSize = button.titleLabel.frame.size;
             [button setTitleEdgeInsets:UIEdgeInsetsMake(imageSize.height ,-imageSize.width, 0.0, 0.0)];
             [button setImageEdgeInsets:UIEdgeInsetsMake(-titileSize.height, 0.0, 0.0, -titileSize.width)];
         }
-        if (item.selectedImageName) {
-            [button setImage:[UIImage imageNamed:item.selectedImageName] forState:UIControlStateSelected];
+        if (item.selectedImage) {
+            [button setImage:item.selectedImage forState:UIControlStateSelected];
         }
         if (self.tabBackGroundImageName) {
             [button setBackgroundImage:[UIImage imageNamed:self.tabBackGroundImageName] forState:UIControlStateSelected];
@@ -232,9 +232,9 @@
 - (UICollectionView *)bodyView {
     if (_bodyView == nil) {
         CGRect bodyFrame = CGRectMake(0,
-                                  self.tabHeight + self.bodyTopMargin,
-                                  self.p_width,
-                                  self.p_height - self.tabHeight - self.bodyTopMargin - self.bodyBottomMargin);
+                                      self.tabHeight + self.bodyTopMargin,
+                                      self.p_width,
+                                      self.p_height - self.tabHeight - self.bodyTopMargin - self.bodyBottomMargin);
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         layout.minimumLineSpacing

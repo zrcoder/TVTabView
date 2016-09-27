@@ -38,8 +38,8 @@
     
     TVItem *starItem = [TVItem new];
     starItem.title = @"Star";
-    starItem.selectedImageName = @"star_selected";
-    starItem.normalImageName = @"star_normal";
+    starItem.selectedImage = [UIImage imageNamed:@"star_selected"];
+    starItem.normalImage = [UIImage imageNamed:@"star_normal"];
     UILabel *label = [UILabel new];
     label.textAlignment = NSTextAlignmentCenter;
     label.text = @"⭐️⭐️⭐️⭐️⭐️⭐️⭐️";
@@ -47,22 +47,22 @@
     
     TVItem *discoveryItem = [TVItem new];
     discoveryItem.title = @"Time";
-    discoveryItem.normalImageName = @"discovery_normal";
-    discoveryItem.selectedImageName = @"discovery_selected";
+    discoveryItem.normalImage = [UIImage imageNamed:@"discovery_normal"];
+    discoveryItem.selectedImage = [UIImage imageNamed:@"discovery_selected"];
     UIImageView *imageView = [UIImageView new];
     imageView.backgroundColor = [UIColor orangeColor];
     discoveryItem.view = imageView;
     
     TVItem *supplierItem = [TVItem new];
     supplierItem.title = @"Supplier";
-    supplierItem.selectedImageName = @"supplier_selected";
-    supplierItem.normalImageName = @"supplier_normal";
+    supplierItem.selectedImage = [UIImage imageNamed:@"supplier_selected"];
+    supplierItem.normalImage = [UIImage imageNamed:@"supplier_normal"];
     supplierItem.view = [UIView new];
     
     TVItem *myItem = [TVItem new];
     myItem.title = @"My";
-    myItem.selectedImageName = @"my_selected";
-    myItem.normalImageName = @"my_normal";
+    myItem.selectedImage = [UIImage imageNamed:@"my_selected"];
+    myItem.normalImage = [UIImage imageNamed:@"my_normal"];
     myItem.view = [UIView new];
     
     tabView.items = @[starItem, discoveryItem, supplierItem, myItem];
