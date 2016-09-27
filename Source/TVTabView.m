@@ -51,16 +51,15 @@
     return self;
 }
 
-- (void)setItems:(NSArray<TVItem *> *)items {
-    _items = items;
-    if (items.count) {
-        [self p_buildSubViews];
-    }
-}
-
 - (void)setBodyDragEnable:(BOOL)bodyDragEnable {
     _bodyDragEnable = bodyDragEnable;
     self.bodyView.scrollEnabled = bodyDragEnable;
+}
+
+- (void)setItems:(NSArray<TVItem *> *)items {
+    _items = items;
+    [self p_buildSubViews];
+    
 }
 
 - (void)p_init {
@@ -73,10 +72,20 @@
     self.selectedTitleColor
     = self.selectedTabLineColor
     = [UIColor colorWithRed:33/255.0 green:149/255.0 blue:128/255.0 alpha:1];
-    self.currentSelectedIndex = 0;
 }
 
 - (void)p_buildSubViews {
+    
+    self.currentSelectedIndex = 0;
+    for (UIView *view in self.tabView.subviews) {
+        [view removeFromSuperview];
+    }
+    [self.buttons removeAllObjects];
+    [self.bodyView reloadData];
+    
+    if (self.items.count < 1) {
+        return;
+    }
     
     self.tabView.backgroundColor = self.tabBackGroundColor;
     self.tabLine.backgroundColor = self.tabLineColor;
@@ -117,7 +126,6 @@
             button.selected = YES;
         }
     }];
-    [self.bodyView reloadData];
     [self p_tappedTabWithIndex:0];
 }
 
@@ -157,8 +165,6 @@
 - (CGFloat)p_height {
     return self.frame.size.height;
 }
-
-
 
 #pragma mark - CollectionView Datasource and Delegate
 
