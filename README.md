@@ -5,7 +5,7 @@ Handy Tab View.
 ![TV2](https://github.com/DingHub/ScreenShots/blob/master/TVTabView/2.png)
 Usage:
 ---
-1. As a containner of views:
+1). As a containner of views:
 ```
     CGFloat width = self.view.frame.size.width;
     CGRect frame = CGRectMake(0, 100, width, width);
@@ -48,7 +48,7 @@ Usage:
     
     tabView.items = @[starItem, discoveryItem, supplierItem, myItem];
 ```
-2. As a containner of viewControllers:
+2). As a containner of viewControllers:
 ```
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
