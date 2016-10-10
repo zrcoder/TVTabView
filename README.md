@@ -13,7 +13,7 @@ Usage:
     tabView.tabHeight = 60;
     tabView.tabHorizontalMargin = 5;
     tabView.tabLineTopMargin = 3;
-    tabView.tabBackGroundImageName = @"tabButtonBackground";
+    tabView.tabBackGroundImage = [UIImage imageNamed:@"tabButtonBackground"];
     tabView.tabLineColor = [UIColor colorWithWhite:0.9 alpha:1];
     tabView.selectedTabLineColor = nil;
     
