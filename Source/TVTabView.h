@@ -38,7 +38,7 @@ typedef void(^TVAction)();
 
 @property (nonatomic, copy) UIColor *tabBackGroundColor;    //  Default is nil
 
-@property (nonatomic, copy) NSString *tabBackGroundImageName; // Default is nil
+@property (nonatomic, strong) UIImage *tabBackGroundImage; // Default is nil
 
 @property (nonatomic, assign) CGFloat tabFontSize;    //  Default is 14
 

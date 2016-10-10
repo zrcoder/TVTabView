@@ -115,8 +115,8 @@
         if (item.selectedImage) {
             [button setImage:item.selectedImage forState:UIControlStateSelected];
         }
-        if (self.tabBackGroundImageName) {
-            [button setBackgroundImage:[UIImage imageNamed:self.tabBackGroundImageName] forState:UIControlStateSelected];
+        if (self.tabBackGroundImage) {
+            [button setBackgroundImage:self.tabBackGroundImage forState:UIControlStateSelected];
             button.contentEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5);
         }
         [button setBackgroundImage:nil forState:UIControlStateNormal];
