@@ -6,7 +6,7 @@ Handy Tab View.
 Usage:
 ---
 1). As a containner of views:
-```
+```objective-c
     CGFloat width = self.view.frame.size.width;
     CGRect frame = CGRectMake(0, 100, width, width);
     TVTabView *tabView = [[TVTabView alloc] initWithFrame:frame];
@@ -49,7 +49,7 @@ Usage:
     tabView.items = @[starItem, discoveryItem, supplierItem, myItem];
 ```
 2). As a containner of viewControllers:
-```
+```objective-c
 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     ViewController1 *vc1 = [storyboard instantiateViewControllerWithIdentifier:@"ViewController1"];
